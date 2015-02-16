@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PersonnelSubareaViewDlg" widgetVar="PersonnelSubareaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPersonnelSubareaTitle}">
+            <h:form id="PersonnelSubareaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{personnelSubareaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPersonnelSubareaLabel_id}"/>
+                        <h:outputText value="#{personnelSubareaController.selected.id}" title="#{bundle.ViewPersonnelSubareaTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewPersonnelSubareaLabel_description}"/>
+                        <h:outputText value="#{personnelSubareaController.selected.description}" title="#{bundle.ViewPersonnelSubareaTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewPersonnelSubareaLabel_persArea}"/>
+                        <h:outputText value="#{personnelSubareaController.selected.persArea}" title="#{bundle.ViewPersonnelSubareaTitle_persArea}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PersonnelSubareaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

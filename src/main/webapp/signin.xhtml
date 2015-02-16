@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head >        
+        <h:outputStylesheet name="bootstrap/css/bootstrap.min.css" />
+        <h:outputStylesheet name="css/signin.css" />
+        <title>Signin Template for Bootstrap</title>
+    </h:head>
+    <h:body> 
+        <div class="container">
+
+            <h:form class="form-signin">
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <p:outputLabel for="inputEmail" class="sr-only">Email address</p:outputLabel>
+                <p:inputText value = "#{loginController.userName}" placeholder = "Email"  id="inputEmail" class="form-control" />
+                <p:outputLabel for="inputPassword" class="sr-only">Password</p:outputLabel>
+                <p:password value = "#{loginController.password}" id="inputPassword" placeholder = "Password" class="form-control" />
+                <div class="checkbox">
+                    <p:outputLabel>
+                        <h:selectBooleanCheckbox value="remember-me"/> Remember me
+                    </p:outputLabel>
+                </div>
+                <p:commandButton value="Sign in" action="#{loginController.login}" class="btn btn-lg btn-primary btn-block" />
+            </h:form>
+
+        </div> <!-- /container -->
+
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="js/ie-emulation-modes-warning.js"/>
+        <!--../../assets/js/ie10-viewport-bug-workaround.js"></script>--> 
+    </h:body>
+</html>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmployeeEditDlg" widgetVar="EmployeeEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEmployeeTitle}">
+            <h:form id="EmployeeEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{employeeController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{employeeController.selected.id}" title="#{bundle.EditEmployeeTitle_id}" required="true" requiredMessage="#{bundle.EditEmployeeRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_emplNo}" for="emplNo" />
+                        <p:inputText id="emplNo" value="#{employeeController.selected.emplNo}" title="#{bundle.EditEmployeeTitle_emplNo}" required="true" requiredMessage="#{bundle.EditEmployeeRequiredMessage_emplNo}"/>
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_foa}" for="foa" />
+                        <p:inputText id="foa" value="#{employeeController.selected.foa}" title="#{bundle.EditEmployeeTitle_foa}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_hireDate}" for="hireDate" />
+                        <p:calendar id="hireDate" pattern="MM/dd/yyyy" value="#{employeeController.selected.hireDate}" title="#{bundle.EditEmployeeTitle_hireDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_surname}" for="surname" />
+                        <p:inputText id="surname" value="#{employeeController.selected.surname}" title="#{bundle.EditEmployeeTitle_surname}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_firstName}" for="firstName" />
+                        <p:inputText id="firstName" value="#{employeeController.selected.firstName}" title="#{bundle.EditEmployeeTitle_firstName}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_middleName}" for="middleName" />
+                        <p:inputText id="middleName" value="#{employeeController.selected.middleName}" title="#{bundle.EditEmployeeTitle_middleName}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_maidenName}" for="maidenName" />
+                        <p:inputText id="maidenName" value="#{employeeController.selected.maidenName}" title="#{bundle.EditEmployeeTitle_maidenName}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_emplType}" for="emplType" />
+                        <p:inputText id="emplType" value="#{employeeController.selected.emplType}" title="#{bundle.EditEmployeeTitle_emplType}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_postion}" for="postion" />
+                        <p:inputText id="postion" value="#{employeeController.selected.postion}" title="#{bundle.EditEmployeeTitle_postion}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_initial}" for="initial" />
+                        <p:inputText id="initial" value="#{employeeController.selected.initial}" title="#{bundle.EditEmployeeTitle_initial}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_gradeLevel}" for="gradeLevel" />
+                        <p:inputText id="gradeLevel" value="#{employeeController.selected.gradeLevel}" title="#{bundle.EditEmployeeTitle_gradeLevel}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_subgroup}" for="subgroup" />
+                        <p:inputText id="subgroup" value="#{employeeController.selected.subgroup}" title="#{bundle.EditEmployeeTitle_subgroup}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_birthDate}" for="birthDate" />
+                        <p:calendar id="birthDate" pattern="MM/dd/yyyy" value="#{employeeController.selected.birthDate}" title="#{bundle.EditEmployeeTitle_birthDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_languages}" for="languages" />
+                        <p:inputText id="languages" value="#{employeeController.selected.languages}" title="#{bundle.EditEmployeeTitle_languages}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_sex}" for="sex" />
+                        <p:inputText id="sex" value="#{employeeController.selected.sex}" title="#{bundle.EditEmployeeTitle_sex}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_maritalStatus}" for="maritalStatus" />
+                        <p:inputText id="maritalStatus" value="#{employeeController.selected.maritalStatus}" title="#{bundle.EditEmployeeTitle_maritalStatus}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_noOfChildren}" for="noOfChildren" />
+                        <p:inputText id="noOfChildren" value="#{employeeController.selected.noOfChildren}" title="#{bundle.EditEmployeeTitle_noOfChildren}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_religion}" for="religion" />
+                        <p:inputText id="religion" value="#{employeeController.selected.religion}" title="#{bundle.EditEmployeeTitle_religion}" />
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_country}" for="country" />
+                        <p:selectOneMenu id="country" value="#{employeeController.selected.country}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{countryController.itemsAvailableSelectOne}"
+                                           var="countryItem"
+                                           itemValue="#{countryItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_lga}" for="lga" />
+                        <p:selectOneMenu id="lga" value="#{employeeController.selected.lga}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{lgaController.itemsAvailableSelectOne}"
+                                           var="lgaItem"
+                                           itemValue="#{lgaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_persSubarea}" for="persSubarea" />
+                        <p:selectOneMenu id="persSubarea" value="#{employeeController.selected.persSubarea}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{personnelSubareaController.itemsAvailableSelectOne}"
+                                           var="persSubareaItem"
+                                           itemValue="#{persSubareaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEmployeeLabel_state}" for="state" />
+                        <p:selectOneMenu id="state" value="#{employeeController.selected.state}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{stateController.itemsAvailableSelectOne}"
+                                           var="stateItem"
+                                           itemValue="#{stateItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{employeeController.update}" value="#{bundle.Save}" update="display,:EmployeeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EmployeeEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EmployeeEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

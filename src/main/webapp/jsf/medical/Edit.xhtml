@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MedicalEditDlg" widgetVar="MedicalEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditMedicalTitle}">
+            <h:form id="MedicalEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{medicalController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditMedicalLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{medicalController.selected.id}" title="#{bundle.EditMedicalTitle_id}" required="true" requiredMessage="#{bundle.EditMedicalRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditMedicalLabel_height}" for="height" />
+                        <p:inputText id="height" value="#{medicalController.selected.height}" title="#{bundle.EditMedicalTitle_height}" />
+                        <p:outputLabel value="#{bundle.EditMedicalLabel_bloodGroup}" for="bloodGroup" />
+                        <p:inputText id="bloodGroup" value="#{medicalController.selected.bloodGroup}" title="#{bundle.EditMedicalTitle_bloodGroup}" />
+                        <p:outputLabel value="#{bundle.EditMedicalLabel_employee}" for="employee" />
+                        <p:selectOneMenu id="employee" value="#{medicalController.selected.employee}" required="true" requiredMessage="#{bundle.EditMedicalRequiredMessage_employee}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"
+                                           var="employeeItem"
+                                           itemValue="#{employeeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{medicalController.update}" value="#{bundle.Save}" update="display,:MedicalListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MedicalEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MedicalEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head >
+        <h:outputStylesheet name="bootstrap/css/bootstrap.min.css" />
+        <h:outputStylesheet name="bootstrap/css/bootstrap-theme.min.css" />
+
+
+
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <link rel="icon" href="favicon.ico"/>
+
+        <title>Personal Detail</title>
+
+
+        <!-- Custom styles for this template -->
+
+        <h:outputStylesheet name="css/jumbotron-narrow.css" />
+
+        <script src="js/ie-emulation-modes-warning.js"></script>
+
+    </h:head>
+    <h:body>
+
+        <div class="container">
+            <div class="header">
+                <nav>
+                    <ul class="nav nav-pills pull-right">
+                        <li role="presentation" class="active"><a href="#">Home</a></li>
+                        <li role="presentation"><a href="#">About</a></li>
+                        <li role="presentation"><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <h3 class="text-muted">Project name</h3>
+            </div>
+
+            <div class="row marketing">
+                <h:form id="EmployeeCreateForm" class="form-horizontal">
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <p:messages id="msgs" />
+                    </h:panelGroup>
+                    <div class="form-group">
+                        <p:outputLabel value="Staff ID" for="emplNo" class="col-sm-2 control-label" />
+                        <div class="col-sm-10">
+                            <p:inputText id="emplNo" value="#{employeeController.selected.emplNo}" 
+                                         title="Staff ID" required="true"  class="form-control" placeholder="Staff ID"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p:outputLabel value="Title" for="foa" class="col-sm-2 control-label" />                        
+                        <div class="col-sm-10">
+                            <p:inputText id="foa" value="#{employeeController.selected.foa}" title="Title"
+                                         class="form-control" placeholder="Title"/>                        
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p:outputLabel value="Hire Date" for="hireDate" class="col-sm-2 control-label" />                        
+                        <div class="col-sm-10">
+                            <p:calendar id="hireDate" pattern="MM/dd/yyyy" value="#{employeeController.selected.hireDate}" 
+                                        title="Hire Date" showOn="button" placeholder="Hire Date"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">                        
+                        <p:outputLabel value="Surname" for="surname" class="col-sm-2 control-label"/>                           
+                        <div class="col-sm-10">
+                            <p:inputText id="surname" value="#{employeeController.selected.surname}" 
+                                         title="Surname" class="form-control" placeholder="Surname"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">                        
+                        <p:outputLabel value="First Name" for="firstName" class="col-sm-2 control-label"/>                           
+                        <div class="col-sm-10">
+                            <p:inputText id="firstName" value="#{employeeController.selected.firstName}" 
+                                         title="First Name" class="form-control" placeholder="First Name"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">  
+                        <p:outputLabel value="Middle Name" for="middleName" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10">
+                            <p:inputText id="middleName" value="#{employeeController.selected.middleName}" 
+                                         title="Middle Name" class="form-control" placeholder="Middle Name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">                       
+                        <p:outputLabel value="Maiden Name" for="maidenName" class="col-sm-2 control-label"/>
+
+                        <div class="col-sm-10">                           
+                            <p:inputText id="maidenName" value="#{employeeController.selected.maidenName}" 
+                                         title="Maiden Name" class="form-control" placeholder="Maiden Name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                        <p:outputLabel value="Pers Sybtype" for="emplType" class="col-sm-2 control-label" />                        
+                        <div class="col-sm-10"> 
+                            <p:inputText id="emplType" value="#{employeeController.selected.emplType}" 
+                                         title="Personnel Subtype" class="form-control" placeholder="Pers Subtype"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">                        
+                        <p:outputLabel value="Position" for="postion" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10">                             
+                            <p:inputText id="postion" value="#{employeeController.selected.postion}" 
+                                         title="Position" class="form-control" placeholder="Position" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">                        
+                        <p:outputLabel value="Initial" for="initial" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10"> 
+                            <p:inputText id="initial" value="#{employeeController.selected.initial}" 
+                                         title="Initial" class="form-control" placeholder="Initial" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">                        
+                        <p:outputLabel value="Grade Level" for="gradeLevel" class="col-sm-2 control-label" />
+                        <div class="col-sm-10"> 
+
+                            <p:inputText id="gradeLevel" value="#{employeeController.selected.gradeLevel}" 
+                                         title="Grade Level" class="form-control" placeholder="Grade Level"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                        <p:outputLabel value="Subgroup" for="subgroup" class="col-sm-2 control-label" />
+                        <div class="col-sm-10"> 
+                            <p:inputText id="subgroup" value="#{employeeController.selected.subgroup}" 
+                                         title="Subgroup" class="form-control" placeholder="Subgroup"/>                           
+                        </div>
+                    </div>
+
+                    <div class="form-group">                         
+                        <p:outputLabel value="Birth Date" for="birthDate" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10"> 
+                            <p:calendar id="birthDate" pattern="MM/dd/yyyy" value="#{employeeController.selected.birthDate}" 
+                                        title="Birth Date"  showOn="button" placeholder="Birth Date"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                        <p:outputLabel value="Languages Spoken" for="languages" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10">                             
+                            <p:inputText id="languages" value="#{employeeController.selected.languages}" 
+                                         title="Languages Spoken" class="form-control" placeholder="Languages Spoken"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">                         
+                        <p:outputLabel value="Sex" for="sex" class="col-sm-2 control-label"/>                           
+                        <div class="col-sm-10">  
+                            <p:inputText id="sex" value="#{employeeController.selected.sex}" 
+                                         title="Sex" class="form-control" placeholder="Sex"/>                            
+                        </div>
+                    </div>
+
+                    <div class="form-group">                         
+                        <p:outputLabel value="Marital Status" for="maritalStatus" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10">
+                            <p:inputText id="maritalStatus" value="#{employeeController.selected.maritalStatus}" 
+                                         title="Marital Status" class="form-control" placeholder="Marital Status"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">  
+                        <p:outputLabel value="No of Children" for="noOfChildren" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10">                            
+                            <p:inputText id="noOfChildren" value="#{employeeController.selected.noOfChildren}" 
+                                         title="No of Children" class="form-control" placeholder="No of Children"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                        <p:outputLabel value="Religion" for="religion" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10">                            
+                            <p:inputText id="religion" value="#{employeeController.selected.religion}" 
+                                         title="Religion" class="form-control" placeholder="Religion"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                        <p:outputLabel value="Pers Area" for="persArea" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10">                            
+                            <p:selectOneMenu id="persArea" value="#{employeeController.persArea}" 
+                                             valueChangeListener="#{employeeController.persAreaValueChanged}"
+                                             >
+                                <f:selectItem itemLabel="---" itemValue="" />
+                                <f:selectItems value="#{personnelAreaController.itemsAvailableSelectOne}"
+                                               var="persAreaItem"
+                                               itemValue="#{persAreaItem}"
+                                               itemLabel="#{persAreaItem.description}"/>
+                                <p:column>
+                                    #{persArea.id}
+                                </p:column>
+                                <p:column>
+                                    #{persArea.description}
+                                </p:column>
+                                <p:ajax  update="persSubarea"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                        <p:outputLabel value="Pers Subarea" for="persSubarea" class="col-sm-2 control-label"/>
+                        <div class="col-sm-10">                            
+                            <p:selectOneMenu id="persSubarea" value="#{employeeController.selected.persSubarea}" 
+                                             >
+                                <f:selectItem itemLabel="---" itemValue="" />
+                                <f:selectItems value="#{employeeController.persSubareaSelectOne}"
+                                               var="persSubareaItem"
+                                               itemValue="#{persSubareaItem}"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="form-group">                        
+                        <p:outputLabel value="Country" for="country" class="col-sm-2 control-label"/>
+
+                        <div class="col-sm-10">  
+                            <p:selectOneMenu id="country" value="#{employeeController.selected.country}" >
+                                <f:selectItem itemLabel="---" itemValue="" />
+                                <f:selectItems value="#{countryController.itemsAvailableSelectOne}"
+                                               var="countryItem"
+                                               itemValue="#{countryItem}"/>
+                                <p:ajax  update="state"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                        <p:outputLabel value="State" for="state" class="col-sm-2 control-label" />
+                        <div class="col-sm-10">                            
+                            <p:selectOneMenu id="state" value="#{employeeController.selected.state}" >
+                                <f:selectItem itemLabel="---" itemValue="" />
+                                <f:selectItems value="#{employeeController.stateSelectOne}"
+                                               var="stateItem"
+                                               itemValue="#{stateItem}"/>
+                                <p:ajax  update="lga"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                        <p:outputLabel value="LGA" for="lga" class="col-sm-2 control-label"/>                       
+                        <div class="col-sm-10">                            
+                            <p:selectOneMenu id="lga" value="#{employeeController.selected.lga}" >
+                                <f:selectItem itemLabel="---" itemValue="" />
+                                <f:selectItems value="#{employeeController.selected.state.lgaList}"
+                                               var="lgaItem"
+                                               itemValue="#{lgaItem}"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <p:commandButton actionListener="#{employeeController.create}" update="messagePanel" value="Save" class="btn btn-default"/>
+                            <p:commandButton ajax="false" action="#{employeeController.next}" value="Next" class="btn btn-default"/>
+                        </div>
+                    </div>
+                </h:form>                
+            </div>
+
+            <footer class="footer">
+                <p>&copy; Company 2014</p>
+            </footer>
+
+        </div> <!-- /container -->
+
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="js/ie10-viewport-bug-workaround.js"></script>
+    </h:body>
+</html>

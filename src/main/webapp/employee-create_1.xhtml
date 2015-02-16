@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head >
+        <h:outputStylesheet name="bootstrap/css/bootstrap.min.css" />
+        <h:outputStylesheet name="bootstrap/css/bootstrap-theme.min.css" />
+
+
+
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <link rel="icon" href="favicon.ico"/>
+
+        <title>Dashboard Template for Bootstrap</title>
+
+
+        <!-- Custom styles for this template -->
+
+        <h:outputStylesheet name="css/jumbotron-narrow.css" />
+
+        <script src="js/ie-emulation-modes-warning.js"></script>
+
+    </h:head>
+    <h:body>
+
+        <div class="container">
+            <div class="header">
+                <nav>
+                    <ul class="nav nav-pills pull-right">
+                        <li role="presentation" class="active"><a href="#">Home</a></li>
+                        <li role="presentation"><a href="#">About</a></li>
+                        <li role="presentation"><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <h3 class="text-muted">Project name</h3>
+            </div>
+
+            <div class="row marketing">
+                
+                    <h:form id="EmployeeCreateForm">
+                        <h:panelGroup id="display">
+                            <p:panelGrid columns="2" >
+                                <p:outputLabel value="Staff ID" for="emplNo" />
+                                <p:inputText id="emplNo" value="#{employeeController.selected.emplNo}" title="Staff ID" required="true" />
+                                <p:outputLabel value="Title" for="foa" />
+                                <p:inputText id="foa" value="#{employeeController.selected.foa}" title="Title" />
+
+                                <p:outputLabel value="Hire Date" for="hireDate" />
+                                <p:calendar id="hireDate" pattern="MM/dd/yyyy" value="#{employeeController.selected.hireDate}" title="Hire Date"  showOn="button"/>
+                                <p:outputLabel value="Surname" for="surname" />
+                                <p:inputText id="surname" value="#{employeeController.selected.surname}" title="Surname" />
+                                <p:outputLabel value="First Name" for="firstName" />
+                                <p:inputText id="firstName" value="#{employeeController.selected.firstName}" title="First Name" />
+                                <p:outputLabel value="Middle Name" for="middleName" />
+                                <p:inputText id="middleName" value="#{employeeController.selected.middleName}" title="Middle Name" />
+                                <p:outputLabel value="Maiden Name" for="maidenName" />
+                                <p:inputText id="maidenName" value="#{employeeController.selected.maidenName}" title="Maiden Name" />
+                                <p:outputLabel value="Pers Sybtype" for="emplType" />
+                                <p:inputText id="emplType" value="#{employeeController.selected.emplType}" title="Personnel Subtype" />
+                                <p:outputLabel value="#Position" for="postion" />
+                                <p:inputText id="postion" value="#{employeeController.selected.postion}" title="Position" />
+                                <p:outputLabel value="Initials" for="initial" />
+                                <p:inputText id="initial" value="#{employeeController.selected.initial}" title="Initials" />
+                                <p:outputLabel value="Grade Level" for="gradeLevel" />
+                                <p:inputText id="gradeLevel" value="#{employeeController.selected.gradeLevel}" title="Grade Level" />
+                                <p:outputLabel value="Subgroup" for="subgroup" />
+                                <p:inputText id="subgroup" value="#{employeeController.selected.subgroup}" title="Subgroup" />
+                                <p:outputLabel value="Birth Date" for="birthDate" />
+                                <p:calendar id="birthDate" pattern="MM/dd/yyyy" value="#{employeeController.selected.birthDate}" title="Birth Date"  showOn="button"/>
+                                <p:outputLabel value="Languages Spoken" for="languages" />
+                                <p:inputText id="languages" value="#{employeeController.selected.languages}" title="Languages Spoken" />
+                                <p:outputLabel value="Sex" for="sex" />
+                                <p:inputText id="sex" value="#{employeeController.selected.sex}" title="Sex" />
+                                <p:outputLabel value="Marital Status" for="maritalStatus" />
+                                <p:inputText id="maritalStatus" value="#{employeeController.selected.maritalStatus}" title="Marital Status" />
+                                <p:outputLabel value="No of Children" for="noOfChildren" />
+                                <p:inputText id="noOfChildren" value="#{employeeController.selected.noOfChildren}" title="No of Children" />
+                                <p:outputLabel value="Religion" for="religion" />
+                                <p:inputText id="religion" value="#{employeeController.selected.religion}" title="Religion" />
+                                
+                               
+                                <p:outputLabel value="Country" for="country" />
+                                <p:selectOneMenu id="country" value="#{employeeController.selected.country}" >
+                                    <f:selectItems value="#{countryController.itemsAvailableSelectOne}"
+                                                   var="countryItem"
+                                                   itemValue="#{countryItem}"/>
+                                </p:selectOneMenu>
+                              
+                                <p:outputLabel value="LGA" for="lga" />
+                                <p:selectOneMenu id="lga" value="#{employeeController.selected.lga}" >
+                                    <f:selectItems value="#{lgaController.itemsAvailableSelectOne}"
+                                                   var="lgaItem"
+                                                   itemValue="#{lgaItem}"/>
+                                </p:selectOneMenu>
+                                
+                                <p:outputLabel value="State" for="state" />
+                                <p:selectOneMenu id="state" value="#{employeeController.selected.state}" >
+                                    <f:selectItems value="#{stateController.itemsAvailableSelectOne}"
+                                                   var="stateItem"
+                                                   itemValue="#{stateItem}"/>
+                                </p:selectOneMenu> 
+                                  
+                                
+                                
+                                <p:outputLabel value="Pers Subarea" for="persSubarea" />
+                                <p:selectOneMenu id="persSubarea" value="#{employeeController.selected.persSubarea}" >
+                                    <f:selectItems value="#{personnelSubareaController.itemsAvailableSelectOne}"
+                                                   var="persSubareaItem"
+                                                   itemValue="#{persSubareaItem}"/>
+                                </p:selectOneMenu>
+                                
+
+                            </p:panelGrid>
+                            <p:commandButton actionListener="#{employeeController.create}" value="Save" update="display" oncomplete="handleSubmit(args,'EmployeeCreateDialog');"/>
+                            <p:commandButton value="Cancel" onclick="EmployeeCreateDialog.hide()"/>
+                        </h:panelGroup>
+                    </h:form>
+                
+            </div>
+
+            <footer class="footer">
+                <p>&copy; Company 2014</p>
+            </footer>
+
+        </div> <!-- /container -->
+
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="js/ie10-viewport-bug-workaround.js"></script>
+    </h:body>
+</html>

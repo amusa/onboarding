@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DependantViewDlg" widgetVar="DependantViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDependantTitle}">
+            <h:form id="DependantViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dependantController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDependantLabel_id}"/>
+                        <h:outputText value="#{dependantController.selected.id}" title="#{bundle.ViewDependantTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewDependantLabel_surname}"/>
+                        <h:outputText value="#{dependantController.selected.surname}" title="#{bundle.ViewDependantTitle_surname}"/>
+                        <h:outputText value="#{bundle.ViewDependantLabel_otherName}"/>
+                        <h:outputText value="#{dependantController.selected.otherName}" title="#{bundle.ViewDependantTitle_otherName}"/>
+                        <h:outputText value="#{bundle.ViewDependantLabel_relationship}"/>
+                        <h:outputText value="#{dependantController.selected.relationship}" title="#{bundle.ViewDependantTitle_relationship}"/>
+                        <h:outputText value="#{bundle.ViewDependantLabel_birthDate}"/>
+                        <h:outputText value="#{dependantController.selected.birthDate}" title="#{bundle.ViewDependantTitle_birthDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewDependantLabel_countryOfBirth}"/>
+                        <h:outputText value="#{dependantController.selected.countryOfBirth}" title="#{bundle.ViewDependantTitle_countryOfBirth}"/>
+                        <h:outputText value="#{bundle.ViewDependantLabel_employee}"/>
+                        <h:outputText value="#{dependantController.selected.employee}" title="#{bundle.ViewDependantTitle_employee}"/>
+                        <h:outputText value="#{bundle.ViewDependantLabel_nationality}"/>
+                        <h:outputText value="#{dependantController.selected.nationality}" title="#{bundle.ViewDependantTitle_nationality}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DependantViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

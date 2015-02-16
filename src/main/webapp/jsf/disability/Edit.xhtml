@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DisabilityEditDlg" widgetVar="DisabilityEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDisabilityTitle}">
+            <h:form id="DisabilityEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{disabilityController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDisabilityLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{disabilityController.selected.id}" title="#{bundle.EditDisabilityTitle_id}" required="true" requiredMessage="#{bundle.EditDisabilityRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditDisabilityLabel_disability}" for="disability" />
+                        <p:inputText id="disability" value="#{disabilityController.selected.disability}" title="#{bundle.EditDisabilityTitle_disability}" />
+                        <p:outputLabel value="#{bundle.EditDisabilityLabel_formOfDisability}" for="formOfDisability" />
+                        <p:inputText id="formOfDisability" value="#{disabilityController.selected.formOfDisability}" title="#{bundle.EditDisabilityTitle_formOfDisability}" />
+                        <p:outputLabel value="#{bundle.EditDisabilityLabel_employee}" for="employee" />
+                        <p:selectOneMenu id="employee" value="#{disabilityController.selected.employee}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"
+                                           var="employeeItem"
+                                           itemValue="#{employeeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{disabilityController.update}" value="#{bundle.Save}" update="display,:DisabilityListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DisabilityEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DisabilityEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

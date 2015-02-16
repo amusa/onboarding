@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BasicPayCreateDlg" widgetVar="BasicPayCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateBasicPayTitle}">
+            <h:form id="BasicPayCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{basicPayController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateBasicPayLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{basicPayController.selected.id}" title="#{bundle.CreateBasicPayTitle_id}" required="true" requiredMessage="#{bundle.CreateBasicPayRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateBasicPayLabel_gradeLevel}" for="gradeLevel" />
+                        <p:inputText id="gradeLevel" value="#{basicPayController.selected.gradeLevel}" title="#{bundle.CreateBasicPayTitle_gradeLevel}" />
+                        <p:outputLabel value="#{bundle.CreateBasicPayLabel_annualSalary}" for="annualSalary" />
+                        <p:inputText id="annualSalary" value="#{basicPayController.selected.annualSalary}" title="#{bundle.CreateBasicPayTitle_annualSalary}" />
+                        <p:outputLabel value="#{bundle.CreateBasicPayLabel_employee}" for="employee" />
+                        <p:selectOneMenu id="employee" value="#{basicPayController.selected.employee}" required="true" requiredMessage="#{bundle.EditBasicPayRequiredMessage_employee}">
+                            <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"
+                                           var="employeeItem"
+                                           itemValue="#{employeeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{basicPayController.create}" value="#{bundle.Save}" update="display,:BasicPayListForm:datalist,:growl" oncomplete="handleSubmit(args,'BasicPayCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BasicPayCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

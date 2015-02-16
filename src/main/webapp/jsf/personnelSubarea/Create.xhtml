@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PersonnelSubareaCreateDlg" widgetVar="PersonnelSubareaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePersonnelSubareaTitle}">
+            <h:form id="PersonnelSubareaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{personnelSubareaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePersonnelSubareaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{personnelSubareaController.selected.id}" title="#{bundle.CreatePersonnelSubareaTitle_id}" required="true" requiredMessage="#{bundle.CreatePersonnelSubareaRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreatePersonnelSubareaLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{personnelSubareaController.selected.description}" title="#{bundle.CreatePersonnelSubareaTitle_description}" />
+                        <p:outputLabel value="#{bundle.CreatePersonnelSubareaLabel_persArea}" for="persArea" />
+                        <p:selectOneMenu id="persArea" value="#{personnelSubareaController.selected.persArea}" >
+                            <f:selectItems value="#{personnelAreaController.itemsAvailableSelectOne}"
+                                           var="persAreaItem"
+                                           itemValue="#{persAreaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{personnelSubareaController.create}" value="#{bundle.Save}" update="display,:PersonnelSubareaListForm:datalist,:growl" oncomplete="handleSubmit(args,'PersonnelSubareaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PersonnelSubareaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

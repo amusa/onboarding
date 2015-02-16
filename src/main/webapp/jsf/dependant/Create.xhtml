@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DependantCreateDlg" widgetVar="DependantCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDependantTitle}">
+            <h:form id="DependantCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dependantController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDependantLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{dependantController.selected.id}" title="#{bundle.CreateDependantTitle_id}" required="true" requiredMessage="#{bundle.CreateDependantRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateDependantLabel_surname}" for="surname" />
+                        <p:inputText id="surname" value="#{dependantController.selected.surname}" title="#{bundle.CreateDependantTitle_surname}" />
+                        <p:outputLabel value="#{bundle.CreateDependantLabel_otherName}" for="otherName" />
+                        <p:inputText id="otherName" value="#{dependantController.selected.otherName}" title="#{bundle.CreateDependantTitle_otherName}" />
+                        <p:outputLabel value="#{bundle.CreateDependantLabel_relationship}" for="relationship" />
+                        <p:inputText id="relationship" value="#{dependantController.selected.relationship}" title="#{bundle.CreateDependantTitle_relationship}" />
+                        <p:outputLabel value="#{bundle.CreateDependantLabel_birthDate}" for="birthDate" />
+                        <p:calendar id="birthDate" pattern="MM/dd/yyyy" value="#{dependantController.selected.birthDate}" title="#{bundle.EditDependantTitle_birthDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateDependantLabel_countryOfBirth}" for="countryOfBirth" />
+                        <p:selectOneMenu id="countryOfBirth" value="#{dependantController.selected.countryOfBirth}" >
+                            <f:selectItems value="#{countryController.itemsAvailableSelectOne}"
+                                           var="countryOfBirthItem"
+                                           itemValue="#{countryOfBirthItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateDependantLabel_employee}" for="employee" />
+                        <p:selectOneMenu id="employee" value="#{dependantController.selected.employee}" >
+                            <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"
+                                           var="employeeItem"
+                                           itemValue="#{employeeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateDependantLabel_nationality}" for="nationality" />
+                        <p:selectOneMenu id="nationality" value="#{dependantController.selected.nationality}" >
+                            <f:selectItems value="#{countryController.itemsAvailableSelectOne}"
+                                           var="nationalityItem"
+                                           itemValue="#{nationalityItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dependantController.create}" value="#{bundle.Save}" update="display,:DependantListForm:datalist,:growl" oncomplete="handleSubmit(args,'DependantCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DependantCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
